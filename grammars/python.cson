@@ -38,7 +38,7 @@
     'include': '#language_variables'
   }
   {
-    'match': '^\\s*\\w+\\s*:\\s*([\\w\\.]+(?:\\[[\\w\\.,\\s]+\\])?)'  # TODO Currently matches inside dict too :(
+    'match': '^\\s*\\w+\\s*:\\s*([\\w\\.\\[\\], ]+)'  # TODO Currently matches inside dict too :(
     'captures':
       '1':
         'name': 'storage.type.python'
@@ -295,7 +295,7 @@
           {
             # param = 3
             # param: int = 3
-            'begin': '(?:(\\*{0,2})|\\b)([a-zA-Z_][\\w_]*)\\s*(?:(:)\\s*([\\w\\.]+(?:\\[[\\w\\.,\\s]+\\])?))?\\s*(=)\\s*'
+            'begin': '(?:(\\*{0,2})|\\b)([a-zA-Z_][\\w_]*)\\s*(?:(:)\\s*([\\w\\.\\[\\], ]+))?\\s*(=)\\s*'
             'beginCaptures':
               '1':
                 'name': 'keyword.operator.unpacking.arguments.python'
@@ -317,7 +317,7 @@
           {
             # param
             # param: int
-            'match': '(?:(\\*{0,2})|\\b)([a-zA-Z_][\\w_]*)\\s*(?:(:)\\s*([\\w\\.]+(?:\\[[\\w\\.,\\s]+\\])?))?'
+            'match': '(?:(\\*{0,2})|\\b)([a-zA-Z_][\\w_]*)\\s*(?:(:)\\s*([\\w\\.\\[\\], ]+))?'
             'captures':
               '1':
                 'name': 'keyword.operator.unpacking.arguments.python'
@@ -335,7 +335,7 @@
         ]
       }
       {
-        'match': '(->)\\s*([\\w\\.]+(?:\\[[\\w\\.,\\s]+\\])?)(?=\\s*:)'
+        'match': '(->)\\s*([\\w\\.\\[\\], ]+)(?=\\s*:)'
         'captures':
           '1':
             'name': 'keyword.operator.function-annotation.python'
